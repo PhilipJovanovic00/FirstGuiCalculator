@@ -63,7 +63,27 @@ void Calculator::MathButtonPressed(){
     ui->Display->setText("");
 
 }
-void EqualButton(){
-
+void Calculator::EqualButton(){
+    double solution = 0.0;
+    QString displayVal = ui->Display->text();
+    double dblDisplayVal = displayVal.toDouble();
+    if(addTrigger || subTrigger || multTrigger || divTrigger){
+        if(addTrigger){
+            solution = calcVal + dblDisplayVal;
+        } else if(subTrigger){
+            solution = calcVal - dblDisplayVal;
+        } else if(multTrigger){
+            solution = calcVal + dblDisplayVal;
+        } else{
+            solution = calcVal / dblDisplayVal;
+        }
+        
+    }
+    ui->Display->setText(QString::number(solution));    
+}
+void Calculator::ChangeNumberSign(){
+    
+    QString displayVal = ui->Display->te
+    
 }
 
