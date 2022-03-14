@@ -1,5 +1,6 @@
 #include "calculator.h"
 #include "ui_calculator.h"
+#include <QRegularExpression>
 
 double calcVal = 0.0;
 bool divTrigger = false;
@@ -21,6 +22,21 @@ Calculator::Calculator(QWidget *parent) :
         connect(numButtons[i], SIGNAL(released()), this,
                 SLOT(numPressed()));
     }
+
+    connect(ui->Add, SIGNAL(released()), this,
+            SLOT(MathButtonPressed()));
+    connect(ui->Subtract, SIGNAL(released()), this,
+            SLOT(MathButtonPressed()));
+    connect(ui->Multiply, SIGNAL(released()), this,
+            SLOT(MathButtonPressed()));
+    connect(ui->Divide, SIGNAL(released()), this,
+            SLOT(MathButtonPressed()));
+
+    connect(ui->Equals, SIGNAL(released()), this,
+            SLOT(EqualButtonPressed()));
+
+    connect(ui->ChangeState, SIGNAL(released()), this,
+            SLOT(ChangeNumberSing()));
 
 }
 
@@ -63,7 +79,35 @@ void Calculator::MathButtonPressed(){
     ui->Display->setText("");
 
 }
-void EqualButton(){
+void Calculator::EqualButtonPressed(){
+    double solution = 0.0;
+    QString displayVal = ui->Display->text();
+    double dblDisplayVal = displayVal.toDouble();
+    if(addTrigger || subTrigger || multTrigger || divTrigger){
+        if(addTrigger){
+            solution = calcVal + dblDisplayVal;
+        } else if(subTrigger){
+            solution = calcVal - dblDisplayVal;
+        } else if(multTrigger){
+            solution = calcVal + dblDisplayVal;
+        } else{
+            solution = calcVal / dblDisplayVal;
+        }
+
+    }
+    ui->Display->setText(QString::number(solution));
+}
+void Calculator::ChangeNumberSign(){
+
+    QString displayVal = ui->Display->text();
+    QRegularExpression reg("[-]?[0-9.]*");
+    if(reg.match(displayVal)){
+        double dblDisplayVal = displayVal.toDouble();
+        double dblDisplayValSign = -1 * dblDisplayVal;
+        ui->Display->setText(QString::number(dblDisplayValSign));
+
+    }
+
 
 }
 

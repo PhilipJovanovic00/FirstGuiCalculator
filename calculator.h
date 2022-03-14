@@ -21,7 +21,7 @@ private:
 private slots:
     void numPressed();
     void MathButtonPressed();
-    void EqualButton();
-    //void ChangeNumberSign();
+    void EqualButtonPressed();
+    void ChangeNumberSign();
 };
 #endif // CALCULATOR_H
