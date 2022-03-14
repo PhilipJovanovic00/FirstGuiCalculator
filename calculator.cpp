@@ -29,9 +29,9 @@ Calculator::~Calculator()
     delete ui;
 }
 
-void Calculator::NumPressed(){
+void Calculator::numPressed(){
     QPushButton *button = (QPushButton *)sender();
-    QString butVal = button->text();
+    QString butVal =button->text();
     QString displayVal = ui->Display->text();
     if((displayVal.toDouble() == 0) || (displayVal.toDouble() == 0.0)){
         ui->Display->setText(butVal);

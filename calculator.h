@@ -19,7 +19,7 @@ private:
     Ui::Calculator *ui;
 
 private slots:
-    void NumPressed();
+    void numPressed();
     //void MathButtonPressed();
     //void EqualButton();
     //void ChangeNumberSign();
