@@ -36,7 +36,7 @@ Calculator::Calculator(QWidget *parent) :
             SLOT(EqualButtonPressed()));
 
     connect(ui->ChangeState, SIGNAL(released()), this,
-            SLOT(ChangeNumberSing()));
+            SLOT(ChangeNumberSign()));
 
 }
 
@@ -101,12 +101,17 @@ void Calculator::ChangeNumberSign(){
 
     QString displayVal = ui->Display->text();
     QRegularExpression reg("[-]?[0-9.]*");
-    if(reg.match(displayVal)){
+    if(reg.match(displayVal).hasMatch()){
         double dblDisplayVal = displayVal.toDouble();
         double dblDisplayValSign = -1 * dblDisplayVal;
         ui->Display->setText(QString::number(dblDisplayValSign));
-
     }
+    //return reg.match(displayVal).hasMatch();
+
+
+
+
+
 
 
 }
