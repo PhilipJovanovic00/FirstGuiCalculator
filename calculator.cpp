@@ -128,14 +128,57 @@ void Calculator::clearDisplay(){
     ui->Display->setText(QString::number(dblDisplayVal));
 }
 void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
+    // Checks the Keyboard input of numbers
     if(keyPressed->key() == Qt::Key_0){
         double key = 0;
         ui->Display->setText(QString::number(key));
     }
     if(keyPressed->key() == Qt::Key_1){
-        double key = 1;
+        QString key = "1";
+        QString displayVal = ui->Display->text();
+        if((displayVal.toDouble() == 0) || (displayVal.toDouble() == 0.0)){
+            ui->Display->setText(key);
+        } else {
+            QString newVal = displayVal + key;
+            double dblNewVal = newVal.toDouble();
+            ui->Display->setText(QString::number(dblNewVal, 'g', 16));
+        }
+    }
+    if(keyPressed->key() == Qt::Key_2){
+        double key = 2;
         ui->Display->setText(QString::number(key));
     }
+    if(keyPressed->key() == Qt::Key_3){
+        double key = 3;
+        ui->Display->setText(QString::number(key));
+    }
+    if(keyPressed->key() == Qt::Key_4){
+        double key = 4;
+        ui->Display->setText(QString::number(key));
+    }
+    if(keyPressed->key() == Qt::Key_5){
+        double key = 5;
+        ui->Display->setText(QString::number(key));
+    }
+    if(keyPressed->key() == Qt::Key_6){
+        double key = 6;
+        ui->Display->setText(QString::number(key));
+    }
+    if(keyPressed->key() == Qt::Key_7){
+        double key = 7;
+        ui->Display->setText(QString::number(key));
+    }
+    if(keyPressed->key() == Qt::Key_8){
+        double key = 8;
+        ui->Display->setText(QString::number(key));
+    }
+    if(keyPressed->key() == Qt::Key_9){
+        double key = 9;
+        ui->Display->setText(QString::number(key));
+    }
+    //Checks the Keyboard input of operators
+
+
 
 }
 
