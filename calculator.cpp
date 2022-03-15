@@ -1,12 +1,14 @@
 #include "calculator.h"
 #include "ui_calculator.h"
 #include <QRegularExpression>
+#include <QKeyEvent>
 
 double calcVal = 0.0;
 bool divTrigger = false;
 bool multTrigger = false;
 bool addTrigger = false;
 bool subTrigger = false;
+
 
 Calculator::Calculator(QWidget *parent) :
     QMainWindow(parent)
@@ -60,6 +62,10 @@ void Calculator::numPressed(){
         ui->Display->setText(QString::number(dblNewVal, 'g', 16));
     }
 }
+
+
+
+
 void Calculator::MathButtonPressed(){
 
     divTrigger = false;
@@ -118,8 +124,18 @@ void Calculator::ChangeNumberSign(){
 void Calculator::clearDisplay(){
 
     double dblDisplayVal = 0.0;
-    QString displayVal = ui->Display->text();
+    //QString displayVal = ui->Display->text();
     ui->Display->setText(QString::number(dblDisplayVal));
+}
+void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
+    if(keyPressed->key() == Qt::Key_0){
+        double key = 0;
+        ui->Display->setText(QString::number(key));
+    }
+    if(keyPressed->key() == Qt::Key_1){
+        double key = 1;
+        ui->Display->setText(QString::number(key));
+    }
 
 }
 

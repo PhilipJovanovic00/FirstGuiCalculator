@@ -15,6 +15,7 @@ public:
     explicit Calculator(QWidget *parent = 0); //nullptr
     ~Calculator();
 
+    void keyReleaseEvent(QKeyEvent *keyPressed);
 private:
     Ui::Calculator *ui;
 
