@@ -127,6 +127,7 @@ void Calculator::clearDisplay(){
     //QString displayVal = ui->Display->text();
     ui->Display->setText(QString::number(dblDisplayVal));
 }
+
 void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
     // Checks the Keyboard input of numbers
     if(keyPressed->key() == Qt::Key_0){
@@ -282,9 +283,10 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         if(QString::compare(butVal, "+", Qt::CaseInsensitive) == 0){
             addTrigger = true;
         }
-        ui->Display->setText("");
+        ui->Display->setText("+");
     }
-    if(keyPressed->key() == Qt::Key_Minus){
+    //Takes the - Operator and does the Operation
+    if(keyPressed->key() == Qt::Key_Underscore){
         subTrigger = false;
         QString displayVal = ui->Display->text();
         calcVal = displayVal.toDouble();
@@ -293,8 +295,9 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         if(QString::compare(butVal, "-", Qt::CaseInsensitive) == 0){
             subTrigger = true;
         }
-        ui->Display->setText("");
+        ui->Display->setText("-");
     }
+    //Takes the * Operator and does the Operation
     if(keyPressed->key() == Qt::Key_Asterisk){
         multTrigger = false;
         QString displayVal = ui->Display->text();
@@ -304,9 +307,10 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         if(QString::compare(butVal, "*", Qt::CaseInsensitive) == 0){
             multTrigger = true;
         }
-        ui->Display->setText("");
+        ui->Display->setText("*");
     }
-    if(keyPressed->key() == Qt::Key_Slash){
+    //Takes the / Operator and does the Operation
+    if(keyPressed->key() == Qt::Key_D){
         divTrigger = false;
         QString displayVal = ui->Display->text();
         calcVal = displayVal.toDouble();

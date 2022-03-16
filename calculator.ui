@@ -108,6 +108,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #b678f8;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -115,6 +116,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -135,6 +137,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -142,6 +145,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -162,6 +166,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -169,6 +174,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -189,6 +195,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -196,6 +203,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -243,6 +251,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #b678f8;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -250,6 +259,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -297,6 +307,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -304,6 +315,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -328,7 +340,7 @@ QPushButton:pressed{
       </property>
       <property name="styleSheet">
        <string notr="true">QLineEdit {
-	background-color: #bef7d3;
+	background-color: #7dcad9;
 	border: 1px solid gray;
 	color: #000000;
 }</string>
@@ -380,6 +392,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -387,6 +400,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -407,6 +421,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -414,6 +429,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -434,6 +450,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -441,6 +458,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -461,6 +479,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -468,6 +487,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -542,6 +562,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -549,6 +570,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -569,6 +591,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #3ad897;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -576,6 +599,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -623,6 +647,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #b678f8;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -630,6 +655,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -650,6 +676,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #b678f8;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -657,6 +684,7 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
@@ -666,7 +694,7 @@ QPushButton:pressed{
      </widget>
     </item>
     <item row="4" column="4">
-     <widget class="QPushButton" name="Pi">
+     <widget class="QPushButton" name="Comma">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -677,6 +705,7 @@ QPushButton:pressed{
        <string notr="true">QPushButton{
 	background-color: #b678f8;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 	color: #000000;
 }
@@ -684,11 +713,12 @@ QPushButton:pressed{
 QPushButton:pressed{
 	background-color: #A9A9A9;
 	border: 1px solid gray;
+	font-size: 15px;
 	padding: 5px;
 }</string>
       </property>
       <property name="text">
-       <string>π</string>
+       <string>.</string>
       </property>
      </widget>
     </item>
