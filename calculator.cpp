@@ -105,10 +105,7 @@ void Calculator::EqualButtonPressed(){
 
     }
     ui->Display->setText(QString::number(solution));
-    divTrigger = false;
-    multTrigger = false;
-    addTrigger = false;
-    subTrigger = false;
+    //set bools to false if necessary: addTrigger etc.
 }
 void Calculator::ChangeNumberSign(){
 
@@ -254,12 +251,16 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         if(addTrigger || subTrigger || multTrigger || divTrigger){
             if(addTrigger){
                 solution = calcVal + dblDisplayVal;
+                addTrigger = false;
             } else if(subTrigger){
                 solution = calcVal - dblDisplayVal;
+                subTrigger = false;
             } else if(multTrigger){
                 solution = calcVal * dblDisplayVal;
+                multTrigger = false;
             } else{
                 solution = calcVal / dblDisplayVal;
+                divTrigger = false;
             }
         }
         ui->Display->setText(QString::number(solution));
@@ -292,7 +293,7 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         ui->Display->setText("+");
     }
     //Takes the - Operator and does the Operation
-    if(keyPressed->key() == Qt::Key_Underscore){
+    if(keyPressed->key() == Qt::Key_Minus){
         subTrigger = false;
         QString displayVal = ui->Display->text();
         calcVal = displayVal.toDouble();
@@ -316,7 +317,7 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         ui->Display->setText("*");
     }
     //Takes the / Operator and does the Operation
-    if(keyPressed->key() == Qt::Key_D){
+    if(keyPressed->key() == Qt::Key_Slash){
         divTrigger = false;
         QString displayVal = ui->Display->text();
         calcVal = displayVal.toDouble();
@@ -325,7 +326,7 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         if(QString::compare(butVal, "/", Qt::CaseInsensitive) == 0){
             divTrigger = true;
         }
-        ui->Display->setText("");
+        ui->Display->setText("/");
     }
 
 }
