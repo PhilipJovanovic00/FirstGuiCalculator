@@ -105,6 +105,10 @@ void Calculator::EqualButtonPressed(){
 
     }
     ui->Display->setText(QString::number(solution));
+    divTrigger = false;
+    multTrigger = false;
+    addTrigger = false;
+    subTrigger = false;
 }
 void Calculator::ChangeNumberSign(){
 
@@ -188,6 +192,7 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
     if(keyPressed->key() == Qt::Key_5){
         QString key = "5";
         QString displayVal = ui->Display->text();
+
         if((displayVal.toDouble() == 0) || (displayVal.toDouble() == 0.0)){
             ui->Display->setText(key);
         } else {
@@ -195,6 +200,7 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
             double dblNewVal = newVal.toDouble();
             ui->Display->setText(QString::number(dblNewVal, 'g', 16));
         }
+
     }
     if(keyPressed->key() == Qt::Key_6){
         QString key = "6";
