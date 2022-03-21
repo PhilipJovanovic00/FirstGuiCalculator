@@ -99,14 +99,17 @@ void Calculator::EqualButtonPressed(){
             solution = calcVal - dblDisplayVal;
         } else if(multTrigger){
             solution = calcVal * dblDisplayVal;
-        } else{
+        } else if(dblDisplayVal == 0){
+                ui->Display->setText("Division through 0 is not possible");
+            } else{
             solution = calcVal / dblDisplayVal;
+            }
         }
-
-    }
     ui->Display->setText(QString::number(solution));
     //set bools to false if necessary: addTrigger etc.
-}
+    }
+
+
 void Calculator::ChangeNumberSign(){
 
     QString displayVal = ui->Display->text();
@@ -251,19 +254,29 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         if(addTrigger || subTrigger || multTrigger || divTrigger){
             if(addTrigger){
                 solution = calcVal + dblDisplayVal;
+                ui->Display->setText(QString::number(solution));
                 addTrigger = false;
             } else if(subTrigger){
                 solution = calcVal - dblDisplayVal;
+                ui->Display->setText(QString::number(solution));
                 subTrigger = false;
             } else if(multTrigger){
                 solution = calcVal * dblDisplayVal;
+                ui->Display->setText(QString::number(solution));
                 multTrigger = false;
-            } else{
-                solution = calcVal / dblDisplayVal;
+            } else if(divTrigger){
+                if(dblDisplayVal == 0){
+                ui->Display->setText("Division through 0 is not possible");
                 divTrigger = false;
+                } else{
+                    solution = calcVal / dblDisplayVal;
+                    ui->Display->setText(QString::number(solution));
+                    divTrigger = false;
+
+                }
             }
         }
-        ui->Display->setText(QString::number(solution));
+
     }
     //Deletes the Display if the Key c is pressed
     if(keyPressed->key() == Qt::Key_C){
