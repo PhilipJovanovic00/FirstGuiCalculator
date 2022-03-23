@@ -211,6 +211,7 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
             QString newVal = displayVal + key;
             double dblNewVal = newVal.toDouble();
             ui->Display->setText(QString::number(dblNewVal, 'g', 16));
+            //ui->tabWidget->tab->listView->setText();
         }
     }
     if(keyPressed->key() == Qt::Key_7){
@@ -343,4 +344,8 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
     }
 
 }
-
+/*
+void writeToQListView(){
+    ui->tabWidget->listView->addText("hello");
+}
+*/

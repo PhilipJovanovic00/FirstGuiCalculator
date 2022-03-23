@@ -25,5 +25,6 @@ private slots:
     void EqualButtonPressed();
     void ChangeNumberSign();
     void clearDisplay();
+    //void writeToQListView();
 };
 #endif // CALCULATOR_H
