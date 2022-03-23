@@ -6,8 +6,7 @@ v1.3: The Clear and Equal Button can now also be executed by typing on the keybo
 change of the state can be done with s, because - is reserved for the subtraction, i'll try to fix this in the future, but for now it is done as said.
 
 
-Information: The Master branch is experimental, the main branch always has working functions. If you want to use the project, please
-clone the main branch, so there are no problems with executing and working with the code.
+Information: The Master branch is the branch you want to look at, the main branch is just something i tested out in the beginning. 
 
 How to use the Calculator:
 Here I will explain to you how the user input through the keyboard works, most of it is straight forward, but some inputs are a bit unusual.
