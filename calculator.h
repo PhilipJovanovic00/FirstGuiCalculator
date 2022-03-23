@@ -22,6 +22,7 @@ private:
 private slots:
     void numPressed();
     void MathButtonPressed();
+    void sqrtPressed();
     void EqualButtonPressed();
     void ChangeNumberSign();
     void clearDisplay();
