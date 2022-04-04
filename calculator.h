@@ -21,11 +21,11 @@ private:
 
 private slots:
     void numPressed();
+    void commaPressed();
     void MathButtonPressed();
     void sqrtPressed();
     void EqualButtonPressed();
     void ChangeNumberSign();
     void clearDisplay();
-    //void writeToQListView();
 };
 #endif // CALCULATOR_H

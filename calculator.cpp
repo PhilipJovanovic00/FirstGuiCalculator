@@ -40,6 +40,8 @@ Calculator::Calculator(QWidget *parent) :
             SLOT(sqrtPressed()));
     connect(ui->Pow, SIGNAL(released()), this,
             SLOT(MathButtonPressed()));
+    connect(ui->Comma, SIGNAL(released()), this,
+            SLOT(commaPressed()));
 
     connect(ui->Equals, SIGNAL(released()), this,
             SLOT(EqualButtonPressed()));
@@ -66,8 +68,15 @@ void Calculator::numPressed(){
     } else {
         QString newVal = displayVal + butVal;
         double dblNewVal = newVal.toDouble();
-        ui->Display->setText(QString::number(dblNewVal, 'g', 16));
+        ui->Display->setText(QString::number(dblNewVal, 'g', 10));
     }
+}
+void Calculator::commaPressed(){
+    QString displayVal = ui->Display->text();
+    calcVal = displayVal.toDouble();
+    QPushButton *button = (QPushButton *)sender();
+    QString butVal = button->text();
+    ui->Display->setText(ui->Display->text() + butVal);
 }
 
 
@@ -131,7 +140,7 @@ void Calculator::EqualButtonPressed(){
             solution = calcVal * dblDisplayVal;
         } else if(dblDisplayVal == 0){
                 ui->Display->setText("Division through 0 is not possible");
-        } else if(subTrigger){
+        } else if(divTrigger){
             solution = calcVal / dblDisplayVal;
         } else if(sqrtTrigger){
            solution = sqrt(dblDisplayVal);
@@ -140,8 +149,7 @@ void Calculator::EqualButtonPressed(){
         }
         }
     ui->Display->setText(QString::number(solution));
-    //set bools to false if necessary: addTrigger etc.
-    }
+}
 
 
 void Calculator::ChangeNumberSign(){
@@ -153,11 +161,6 @@ void Calculator::ChangeNumberSign(){
         double dblDisplayValSign = -1 * dblDisplayVal;
         ui->Display->setText(QString::number(dblDisplayValSign));
     }
-
-
-
-
-    //return reg.match(displayVal).hasMatch();
 }
 void Calculator::clearDisplay(){
 
@@ -167,7 +170,8 @@ void Calculator::clearDisplay(){
 }
 
 void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
-    // Checks the Keyboard input of numbers
+    // From 0 to 9, this is called if the user inputs a number
+    //on the keyboard. The value is then Displayed.
     if(keyPressed->key() == Qt::Key_0){
         QString key = "0";
         QString displayVal = ui->Display->text();
@@ -319,6 +323,8 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         }
 
     }
+    //This Method is called when the user presses the enter key, it also calculates
+    //the result and Displays it on the display
     if(keyPressed->key() == Qt::Key_Enter){
         double solution = 0.0;
         QString displayVal = ui->Display->text();
@@ -419,6 +425,7 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         ui->Display->setText("/");
     }
 
+    //Takes the ^ and takes the Power of a number
     if(keyPressed->key()  == Qt::Key_AsciiCircum){
         powTrigger = true;
         QString displayVal = ui->Display->text();
@@ -434,8 +441,4 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
 
     //Further implementation of user input will come soon
 }
-/*
-void writeToQListView(){
-    ui->tabWidget->listView->addText("hello");
-}
-*/
+
