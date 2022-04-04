@@ -2,6 +2,7 @@
 #include "ui_calculator.h"
 #include <QRegularExpression>
 #include <QKeyEvent>
+#include <math.h>
 
 double calcVal = 0.0;
 bool divTrigger = false;
@@ -9,6 +10,7 @@ bool multTrigger = false;
 bool addTrigger = false;
 bool subTrigger = false;
 bool sqrtTrigger = false;
+bool powTrigger = false;
 
 
 Calculator::Calculator(QWidget *parent) :
@@ -36,6 +38,8 @@ Calculator::Calculator(QWidget *parent) :
             SLOT(MathButtonPressed()));
     connect(ui->Sqrt, SIGNAL(released()), this,
             SLOT(sqrtPressed()));
+    connect(ui->Pow, SIGNAL(released()), this,
+            SLOT(MathButtonPressed()));
 
     connect(ui->Equals, SIGNAL(released()), this,
             SLOT(EqualButtonPressed()));
@@ -76,6 +80,7 @@ void Calculator::MathButtonPressed(){
     addTrigger = false;
     subTrigger = false;
     sqrtTrigger = false;
+    powTrigger = false;
     QString displayVal = ui->Display->text();
     calcVal = displayVal.toDouble();
     QPushButton *button = (QPushButton *)sender();
@@ -90,6 +95,8 @@ void Calculator::MathButtonPressed(){
         subTrigger = true;
     } else if(QString::compare(butVal, "√", Qt::CaseInsensitive) == 0){
         sqrtTrigger = true;
+    } else if(QString::compare(butVal, "^", Qt::CaseInsensitive) == 0){
+        powTrigger = true;
     }
     ui->Display->setText("");
 
@@ -115,7 +122,7 @@ void Calculator::EqualButtonPressed(){
     double solution = 0.0;
     QString displayVal = ui->Display->text();
     double dblDisplayVal = displayVal.toDouble();
-    if(addTrigger || subTrigger || multTrigger || divTrigger || sqrtTrigger){
+    if(addTrigger || subTrigger || multTrigger || divTrigger || sqrtTrigger || powTrigger){
         if(addTrigger){
             solution = calcVal + dblDisplayVal;
         } else if(subTrigger){
@@ -128,6 +135,8 @@ void Calculator::EqualButtonPressed(){
             solution = calcVal / dblDisplayVal;
         } else if(sqrtTrigger){
            solution = sqrt(dblDisplayVal);
+        } else if(powTrigger){
+            solution = pow(calcVal, dblDisplayVal);
         }
         }
     ui->Display->setText(QString::number(solution));
@@ -277,7 +286,7 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         double solution = 0.0;
         QString displayVal = ui->Display->text();
         double dblDisplayVal = displayVal.toDouble();
-        if(addTrigger || subTrigger || multTrigger || divTrigger){
+        if(addTrigger || subTrigger || multTrigger || divTrigger || sqrtTrigger || powTrigger){
             if(addTrigger){
                 solution = calcVal + dblDisplayVal;
                 ui->Display->setText(QString::number(solution));
@@ -298,12 +307,15 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
                     solution = calcVal / dblDisplayVal;
                     ui->Display->setText(QString::number(solution));
                     divTrigger = false;
-
                 }
             } else if(sqrtTrigger){
                 solution = sqrt(calcVal);
                 ui->Display->setText(QString::number(solution));
+            } else if(powTrigger){
+                solution = pow(calcVal, dblDisplayVal);
+                ui->Display->setText(QString::number(solution));
             }
+
         }
 
     }
@@ -311,7 +323,7 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         double solution = 0.0;
         QString displayVal = ui->Display->text();
         double dblDisplayVal = displayVal.toDouble();
-        if(addTrigger || subTrigger || multTrigger || divTrigger){
+        if(addTrigger || subTrigger || multTrigger || divTrigger || sqrtTrigger || powTrigger){
             if(addTrigger){
                 solution = calcVal + dblDisplayVal;
                 ui->Display->setText(QString::number(solution));
@@ -336,6 +348,9 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
                 }
             } else if(sqrtTrigger){
                 solution = sqrt(calcVal);
+                ui->Display->setText(QString::number(solution));
+            } else if(powTrigger){
+                solution = pow(calcVal, dblDisplayVal);
                 ui->Display->setText(QString::number(solution));
             }
         }
@@ -403,6 +418,20 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         }
         ui->Display->setText("/");
     }
+
+    if(keyPressed->key()  == Qt::Key_AsciiCircum){
+        powTrigger = true;
+        QString displayVal = ui->Display->text();
+        calcVal = displayVal.toDouble();
+        QString butVal = "^";
+        if(QString::compare(butVal, "^", Qt::CaseInsensitive) == 0){
+            powTrigger = true;
+        }
+        ui->Display->setText("^");
+
+    }
+
+
     //Further implementation of user input will come soon
 }
 /*
