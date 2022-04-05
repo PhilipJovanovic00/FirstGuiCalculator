@@ -22,6 +22,7 @@ private:
 private slots:
     void numPressed();
     void commaPressed();
+    void logPressed();
     void MathButtonPressed();
     void sqrtPressed();
     void EqualButtonPressed();

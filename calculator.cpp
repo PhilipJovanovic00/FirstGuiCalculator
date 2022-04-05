@@ -11,6 +11,7 @@ bool addTrigger = false;
 bool subTrigger = false;
 bool sqrtTrigger = false;
 bool powTrigger = false;
+bool logTrigger = false;
 
 
 Calculator::Calculator(QWidget *parent) :
@@ -42,6 +43,8 @@ Calculator::Calculator(QWidget *parent) :
             SLOT(MathButtonPressed()));
     connect(ui->Comma, SIGNAL(released()), this,
             SLOT(commaPressed()));
+    connect(ui->Logging, SIGNAL(released()), this,
+            SLOT(logPressed()));
 
     connect(ui->Equals, SIGNAL(released()), this,
             SLOT(EqualButtonPressed()));
@@ -78,7 +81,14 @@ void Calculator::commaPressed(){
     QString butVal = button->text();
     ui->Display->setText(ui->Display->text() + butVal);
 }
+void Calculator::logPressed(){
+    logTrigger = true;
+    QString displayVal = ui->Display->text();
+    calcVal = displayVal.toDouble();
+    double solution = log10(calcVal);
+    ui->Display->setText(QString::number(solution));
 
+}
 
 
 
@@ -131,24 +141,41 @@ void Calculator::EqualButtonPressed(){
     double solution = 0.0;
     QString displayVal = ui->Display->text();
     double dblDisplayVal = displayVal.toDouble();
-    if(addTrigger || subTrigger || multTrigger || divTrigger || sqrtTrigger || powTrigger){
+jmp:
+ui->Display->setText("Division through 0 is not possible");
+
+    if(addTrigger || subTrigger || multTrigger || divTrigger || sqrtTrigger || powTrigger || logTrigger){
         if(addTrigger){
             solution = calcVal + dblDisplayVal;
+            ui->Display->setText(QString::number(solution));
         } else if(subTrigger){
             solution = calcVal - dblDisplayVal;
+            ui->Display->setText(QString::number(solution));
         } else if(multTrigger){
             solution = calcVal * dblDisplayVal;
+            ui->Display->setText(QString::number(solution));
         } else if(dblDisplayVal == 0){
                 ui->Display->setText("Division through 0 is not possible");
         } else if(divTrigger){
+            if(dblDisplayVal == 0){
+                goto jmp;
+            }else{
             solution = calcVal / dblDisplayVal;
+            ui->Display->setText(QString::number(solution));
+            }
         } else if(sqrtTrigger){
            solution = sqrt(dblDisplayVal);
+           ui->Display->setText(QString::number(solution));
         } else if(powTrigger){
             solution = pow(calcVal, dblDisplayVal);
+            ui->Display->setText(QString::number(solution));
+        } else if(logTrigger){
+            solution = dblDisplayVal;
+            ui->Display->setText(QString::number(solution));
         }
-        }
-    ui->Display->setText(QString::number(solution));
+    }
+
+    //ui->Display->setText(QString::number(solution));
 }
 
 

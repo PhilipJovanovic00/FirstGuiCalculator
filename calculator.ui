@@ -736,23 +736,12 @@ QPushButton:pressed{
     </item>
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuCalculator">
-    <property name="title">
-     <string>Calculator</string>
-    </property>
-   </widget>
-   <addaction name="menuCalculator"/>
-  </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionStandard">
+   <property name="text">
+    <string>Standard</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
