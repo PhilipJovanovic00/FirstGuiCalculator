@@ -5,6 +5,8 @@
 #include <math.h>
 
 double calcVal = 0.0;
+double piValue = 3.14159265359;
+double eValue = 2.7182818284;
 bool divTrigger = false;
 bool multTrigger = false;
 bool addTrigger = false;
@@ -45,6 +47,13 @@ Calculator::Calculator(QWidget *parent) :
             SLOT(commaPressed()));
     connect(ui->Logging, SIGNAL(released()), this,
             SLOT(logPressed()));
+    connect(ui->Pi, SIGNAL(released()), this,
+            SLOT(piPressed()));
+    connect(ui->EulersNum, SIGNAL(released()), this,
+            SLOT(ePressed()));
+    connect(ui->LogNat, SIGNAL(released()), this,
+            SLOT(lnPressed()));
+
 
     connect(ui->Equals, SIGNAL(released()), this,
             SLOT(EqualButtonPressed()));
@@ -87,7 +96,20 @@ void Calculator::logPressed(){
     calcVal = displayVal.toDouble();
     double solution = log10(calcVal);
     ui->Display->setText(QString::number(solution));
+}
+void Calculator::lnPressed(){
+    QString displayVal = ui->Display->text();
+    calcVal = displayVal.toDouble();
+    double solution = log10(calcVal) / log10(eValue);
+    ui->Display->setText(QString::number(solution));
+}
 
+void Calculator::piPressed(){
+    ui->Display->setText(QString::number(piValue));
+
+}
+void Calculator::ePressed(){
+    ui->Display->setText(QString::number(eValue));
 }
 
 
@@ -120,6 +142,7 @@ void Calculator::MathButtonPressed(){
     ui->Display->setText("");
 
 }
+
 void Calculator::sqrtPressed(){
     sqrtTrigger = false;
     QString displayVal = ui->Display->text();
@@ -463,6 +486,12 @@ void Calculator::keyReleaseEvent(QKeyEvent *keyPressed){
         }
         ui->Display->setText("^");
 
+    }
+    if(keyPressed->key() == Qt::Key_Period){
+        QString displayVal = ui->Display->text();
+        calcVal = displayVal.toDouble();
+        QString keyPeriod = ".";
+        ui->Display->setText(ui->Display->text() + keyPeriod);
     }
 
 

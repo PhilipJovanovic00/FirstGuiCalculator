@@ -23,6 +23,9 @@ private slots:
     void numPressed();
     void commaPressed();
     void logPressed();
+    void lnPressed();
+    void piPressed();
+    void ePressed();
     void MathButtonPressed();
     void sqrtPressed();
     void EqualButtonPressed();
