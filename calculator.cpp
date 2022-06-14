@@ -164,8 +164,6 @@ void Calculator::EqualButtonPressed(){
     double solution = 0.0;
     QString displayVal = ui->Display->text();
     double dblDisplayVal = displayVal.toDouble();
-jmp:
-ui->Display->setText("Division through 0 is not possible");
 
     if(addTrigger || subTrigger || multTrigger || divTrigger || sqrtTrigger || powTrigger || logTrigger){
         if(addTrigger){
@@ -180,12 +178,9 @@ ui->Display->setText("Division through 0 is not possible");
         } else if(dblDisplayVal == 0){
                 ui->Display->setText("Division through 0 is not possible");
         } else if(divTrigger){
-            if(dblDisplayVal == 0){
-                goto jmp;
-            }else{
             solution = calcVal / dblDisplayVal;
             ui->Display->setText(QString::number(solution));
-            }
+
         } else if(sqrtTrigger){
            solution = sqrt(dblDisplayVal);
            ui->Display->setText(QString::number(solution));
